@@ -1,0 +1,59 @@
+/* ล้างขอบจอ */
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: "Lato", sans-serif;
+    color: #777;
+}
+
+/* ตั้งค่าพื้นฐานสำหรับส่วนที่เป็น Parallax */
+.parallax {
+    /* หัวใจหลักของ Parallax */
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+    /* ให้สูงเต็มหน้าจอเสมอ */
+    height: 100vh;
+    
+    /* จัดข้อความให้อยู่กึ่งกลางรูป */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ใส่รูปภาพที่ 1 */
+.img-1 {
+    background-image: url('https://images.unsplash.com/photo-1474487097717-505b1c4653dd?auto=format&fit=crop&q=80&w=1600');
+}
+
+/* ใส่รูปภาพที่ 2 */
+.img-2 {
+    background-image: url('https://media.cnn.com/api/v1/images/stellar/prod/screen-shot-2024-07-25-at-10-27-16-am.jpg?c=original');
+}
+
+/* ตกแต่งบล็อกข้อความกลางรูป */
+.caption .border {
+    background-color: black;
+    color: #fff;
+    padding: 18px;
+    font-size: 25px;
+    letter-spacing: 10px;
+    text-transform: uppercase;
+}
+
+/* ส่วนบล็อกสีดำ (Content Block) */
+.black-section {
+    color: #ddd;
+    background-color: #282e34;
+    text-align: center;
+    padding: 50px 80px;
+    text-align: justify;
+}
+
+.black-section h3 {
+    text-align: center;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+}

@@ -1,0 +1,80 @@
+/* การจัดวางพื้นฐาน */
+body {
+    background-color: #f4f4f4;
+    font-family: 'Arial', sans-serif;
+    display: flex;
+    justify-content: center;
+    padding-top: 50px;
+}
+
+/* คอนเทนเนอร์หลัก */
+.sandwich-container {
+    position: relative;
+    display: inline-block;
+    width: 250px;
+    cursor: pointer;
+}
+
+/* ขนมปังแผ่นบน */
+.bread-top {
+    background-color: #f3e5ab; /* สีเหลืองนวลแบบขนมปัง */
+    padding: 15px;
+    text-align: center;
+    font-weight: bold;
+    border-radius: 15px 15px 0 0;
+    border: 2px solid #d4a373;
+    color: #5d4037;
+}
+
+/* ซ่อนไส้แซนด์วิช (Menu) ไว้ก่อน */
+.ingredients {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: none; /* ปิดการมองเห็น */
+    position: absolute;
+    width: 100%;
+    box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+}
+
+/* เมื่อเอาเมาส์มาวางที่ container ให้แสดงไส้ออกมา */
+.sandwich-container:hover .ingredients {
+    display: block;
+}
+
+/* ตกแต่งรายการเมนูให้เหมือนชั้นของแซนด์วิช */
+.ingredients li a {
+    display: block;
+    padding: 12px;
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ชั้นชีส (สีเหลือง) */
+.cheese {
+    background-color: #ffd700;
+}
+
+.veg {
+    background-color: green;
+}
+/* ชั้นแฮม (สีชมพู) */
+.ham {
+    background-color: #ffc0cb;
+}
+
+/* ขนมปังแผ่นล่าง */
+.bread-bottom {
+    background-color: #f3e5ab;
+    border-radius: 0 0 15px 15px;
+    border-bottom: 2px solid #d4a373;
+}
+
+/* เอฟเฟกต์เมื่อเอาเมาส์ชี้ที่ละชั้น */
+.ingredients li:hover {
+    filter: brightness(90%);
+    transform: scale(1.02);
+    transition: 0.2s;
+}

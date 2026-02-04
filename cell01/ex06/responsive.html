@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Responsive Table</title>
+    <meta charset="UTF-8">
+    
+    <style>
+        /* 1. สั่งให้ทั้งหน้าจอไม่มีขอบขาว และสูงเต็ม 100% */
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%; /* responsive */
+            height: 100%; /* responsive */
+        } 
+
+        /* 2. สั่งให้ตารางกว้างและสูงเต็มหน้าจอ */
+        table {
+            width: 100%; /* responsive */
+            height: 100%; /* responsive */
+            border-collapse: collapse; /* ลบช่องว่างระหว่างขอบ */
+        }
+
+        /* 3. สั่งให้เซลล์แบ่งกันคนละครึ่ง */
+        td {
+            width: 50%;
+            text-align: center;
+            font-size: 20px; 
+        }
+
+        /* 4. กำหนดสีพื้นหลังแยกตาม Class */
+        .green-box {
+            background-color: greenyellow;
+        }
+
+        .orange-box {
+            background-color: orangered;
+        }
+    </style>
+    </head>
+<body>
+
+    <table>
+        <tr>
+            <td class="green-box">
+                Green apple
+            </td>
+
+            <td class="orange-box">
+                Red apple
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

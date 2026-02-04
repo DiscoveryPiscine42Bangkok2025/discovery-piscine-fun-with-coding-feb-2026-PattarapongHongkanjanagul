@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Calculator (jQuery)</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body {
+            background-color: #f0f2f5;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .calculator-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 100px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+        }
+
+        select {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin: 5px;
+            background-color: #fff;
+        }
+
+        input[type="submit"] {
+            display: block;
+            margin: 20px auto 0;
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="calculator-container">
+        <h2>Basic Calculator</h2>
+
+        <div class="input-group">
+            <input type="text" id="leftOp" placeholder="Left number">
+
+            <select id="operator">
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
+            </select>
+
+            <input type="text" id="rightOp" placeholder="Right number">
+
+            <input type="submit" value="Try me!" id="submitBtn">
+        </div>
+    </div>
+
+    <script>
+        // ===== JavaScript (jQuery) =====
+
+        // 1. แจ้งเตือนทุก 30 วินาที
+        setInterval(function () {
+            alert("Please, use me...");
+        }, 30000);
+
+        $(document).ready(function () {
+
+            $('#submitBtn').on('click', function () {
+
+                const leftInput  = $('#leftOp').val();
+                const rightInput = $('#rightOp').val();
+                const operator   = $('#operator').val();
+
+                const l = Number(leftInput);
+                const r = Number(rightInput);
+
+                // Validation: ต้องเป็นจำนวนเต็มบวก
+                if (!isPositiveInteger(leftInput) || !isPositiveInteger(rightInput)) {
+                    alert("Error :(");
+                    return;
+                }
+
+                // ห้ามหารหรือ mod ด้วย 0
+                if ((operator === '/' || operator === '%') && r === 0) {
+                    logAndAlert("Error");
+                    return;
+                }
+
+                let result = 0;
+
+                switch (operator) {
+                    case '+':
+                        result = l + r;
+                        break;
+                    case '-':
+                        result = l - r;
+                        break;
+                    case '*':
+                        result = l * r;
+                        break;
+                    case '/':
+                        result = l / r;
+                        break;
+                    case '%':
+                        result = l % r;
+                        break;
+                }
+
+                logAndAlert(result);
+            });
+
+        });
+
+        function isPositiveInteger(str) {
+            const n = Number(str);
+            return n >= 0 && Number.isInteger(n) && str.trim() !== "";
+        }
+
+        function logAndAlert(msg) {
+            console.log(msg);
+            alert(msg);
+        }
+    </script>
+
+</body>
+</html>

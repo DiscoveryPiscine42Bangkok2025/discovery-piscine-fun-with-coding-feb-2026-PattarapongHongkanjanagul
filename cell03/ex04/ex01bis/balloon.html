@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Balloon Exercise (jQuery)</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        /* ===== CSS ===== */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f7f7f7;
+        }
+
+        #balloon {
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.2s, width 0.2s, height 0.2s;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="balloon"></div>
+
+    <script>
+        // ===== JavaScript (jQuery) =====
+
+        let currentSize = 200;
+        const colors = ['red', 'green', 'blue'];
+        let colorIndex = 0;
+
+        function updateBalloon() {
+            $('#balloon').css({
+                width: currentSize + 'px',
+                height: currentSize + 'px',
+                backgroundColor: colors[colorIndex]
+            });
+        }
+
+        $(document).ready(function () {
+
+            // 1. Click: ขยาย + เปลี่ยนสีไปข้างหน้า
+            $('#balloon').on('click', function () {
+                currentSize += 10;
+                colorIndex = (colorIndex + 1) % colors.length;
+
+                // ถ้าใหญ่เกิน 420px ให้รีเซ็ต
+                if (currentSize > 420) {
+                    currentSize = 200;
+                    colorIndex = 0;
+                }
+
+                updateBalloon();
+            });
+
+            // 2. Mouse leave: หด + เปลี่ยนสีถอยหลัง
+            $('#balloon').on('mouseleave', function () {
+                if (currentSize > 200) {
+                    currentSize -= 5;
+                }
+
+                colorIndex = (colorIndex - 1 + colors.length) % colors.length;
+
+                updateBalloon();
+            });
+
+        });
+    </script>
+
+</body>
+</html>

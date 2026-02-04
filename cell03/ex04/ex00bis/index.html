@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Random 3 Colors (jQuery)</title>
+
+    <!-- jQuery CDN -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+    <style>
+        /* ===== CSS ===== */
+        body {
+            background-color: white; /* เริ่มต้นสีขาว */
+            margin: 0;
+            height: 100vh;
+            font-family: Arial, sans-serif;
+            transition: background-color 0.3s; /* เปลี่ยนสีแบบนุ่มนวล */
+        }
+
+        #clickMeBtn {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #f0f0f0;
+            border: 1px solid #999;
+            border-radius: 4px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+        }
+
+        #clickMeBtn:hover {
+            background-color: #e0e0e0;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="clickMeBtn">Click me!</button>
+
+    <script>
+        // ===== JavaScript (jQuery) =====
+
+        // สีที่อนุญาตให้สุ่ม
+        var allowedColors = ['green', 'red', 'white'];
+        // หรือใช้โทนสวย ๆ
+        // var allowedColors = ['#2ecc71', '#e74c3c', '#ffffff'];
+
+        function getRandomFixedColor() {
+            var randomIndex = Math.floor(Math.random() * allowedColors.length);
+            return allowedColors[randomIndex];
+        }
+
+        $(document).ready(function () {
+
+            $('#clickMeBtn').on('click', function () {
+                var newColor = getRandomFixedColor();
+
+                $('body').css('background-color', newColor);
+
+                console.log('Current Color:', newColor);
+            });
+
+        });
+    </script>
+
+</body>
+</html>

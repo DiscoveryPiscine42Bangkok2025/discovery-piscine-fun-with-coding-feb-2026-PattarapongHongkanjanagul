@@ -31,7 +31,7 @@ btn.addEventListener("click", function() {
 
     // เช็คกรณีหาร หรือ Modulo ด้วย 0 ก่อน (Over 9000 case)
     if ((operator === '/' || operator === '%') && r === 0) {
-        logAndAlert("It's over 9000!");
+        logAndAlert("Error");
         return;
     }
 

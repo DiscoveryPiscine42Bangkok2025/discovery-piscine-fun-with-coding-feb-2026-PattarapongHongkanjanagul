@@ -1,0 +1,30 @@
+/* style.css */
+
+body {
+    background-color: white; /* เริ่มต้นสีขาว */
+    margin: 0;
+    height: 100vh;
+    /* ลบ display: flex; ออก เพราะเราจะกำหนดตำแหน่งปุ่มเองแล้ว */
+    font-family: Arial, sans-serif;
+    transition: background-color 0.3s; /* เปลี่ยนสีแบบนุ่มนวล */
+}
+
+#clickMeBtn {
+    /* คำสั่งจัดตำแหน่งปุ่มไปที่มุมซ้ายบน */
+    position: absolute; 
+    top: 20px;  /* ห่างจากขอบบน 20px */
+    left: 20px; /* ห่างจากขอบซ้าย 20px */
+    
+    /* ตกแต่งปุ่ม */
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    background-color: #f0f0f0;
+    border: 1px solid #999;
+    border-radius: 4px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+#clickMeBtn:hover {
+    background-color: #e0e0e0;
+}

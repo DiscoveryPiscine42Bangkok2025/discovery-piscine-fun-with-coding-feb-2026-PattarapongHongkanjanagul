@@ -1,0 +1,19 @@
+/* balloon.css */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f7f7f7;
+}
+
+#balloon {
+    width: 200px;
+    height: 200px;
+    background-color: red;
+    border-radius: 50%; /* ทำให้เป็นวงกลม */
+    cursor: pointer;
+    transition: background-color 0.2s; /* เพื่อให้สีเปลี่ยนนุ่มนวลขึ้นนิดหน่อย */
+}
